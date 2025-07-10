@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To Someone Special 💝</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      transition: background 1s ease;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .curve-text {
+      font-size: 1.5rem;
+      font-family: cursive;
+      font-weight: bold;
+      color: #e91e63;
+      text-align: center;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      text-shadow: 1px 1px 2px #fff;
+      transform: rotate(-5deg); /* slight curve illusion */
+    }
+
+    .present-view img {
+      width: 250px;
+      animation: pulse 2s infinite;
+    }
+
+    .flower-view img {
+      width: 250px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .message {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      color: #6a1b9a;
+    }
+
+    .countdown {
+      font-size: 1rem;
+      margin-top: 10px;
+      color: #444;
+    }
+
+    .open-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-family: cursive;
+      background: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(255, 20, 147, 0.3);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .open-button:hover {
+      background: #ff85c1;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(255, 20, 147, 0.4);
+    }
+
+    /* Music button circular style */
+    #music-button button{
+      /* background: #fff27f;
+      color: #222;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 50%;
+      font-size: 20px;
+      /* font-weight: bold;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      cursor: pointer; */
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 50px;
+      height: 50px;
+      border: none;
+      background: #ffd374;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+
+    /* #music-button:hover {
+        transform: scale(1.1);
+    } */
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    iframe {
+      position: absolute;
+      top: -1000px; /* Hide from view */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Initial present view -->
+    <div class="present-view" id="presentView">
+      <div class="curve-text">
+        <span>Dear XXXXX</span><br/>
+        <span>There Is A Gift For You…</span>
+      </div>
+      <img src="giftbox1.gif" alt="Gift Present" class="present-img"/>
+      <br/>
+      <button class="open-button" onclick="revealGift()">Click Me!</button>
+    </div>
+
+    <!-- Hidden flower and message view -->
+    <div class="flower-view hidden" id="flowerView">
+      <img src="flower.gif" alt="Flower Bouquet"/>
+      <div class="message">
+        Just a little bloom of luck for your finals!<br/>
+        Wishing you all the clarity, calm, <br/>
+        and confidence in your finals!<br/>
+        You've got this — I believe in you. 💖
+      </div>
+      <div class="countdown" id="countdown"></div>
+    </div>
+  </div>
+
+  <!-- Local Music with Mute Toggle -->
+  <audio id="bgMusic" src="Colorful-Flowers.mp3" loop autoplay></audio>
+
+  <div id="music-button"
+       style="position: fixed; top: 20px; right: 20px; z-index: 999;">
+    <button id="toggle-sound">
+      🔊
+    </button>
+  </div>
+
+  <script>
+    function revealGift() {
+      document.getElementById('presentView').classList.add('hidden');
+      document.getElementById('flowerView').classList.remove('hidden');
+      document.body.style.background = '#fffafc';
+    }
+
+    // Countdown
+    const examDate = new Date("2025-07-15T09:00:00"); // CHANGE THIS
+    const countdownEl = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = examDate - now;
+
+      if (diff <= 0) {
+        countdownEl.textContent = "It's exam time! You’ve got this!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownEl.textContent = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s to your big day!`;
+    }
+
+    setInterval(updateCountdown, 1000);
+
+    const music = document.getElementById("bgMusic");
+    const button = document.getElementById("toggle-sound");
+
+    button.addEventListener("click", () => {
+      music.muted = !music.muted;
+      button.textContent = music.muted ? "🔇" : "🔊";
+    });
+
+    // Optional: Auto mute on load (user can unmute manually)
+    window.addEventListener('load', () => {
+      music.muted = false;
+      button.textContent = "🔊";
+    });
+
+    // Add some sparkle effect
+    function createSparkle() {
+        const sparkle = document.createElement('div');
+        sparkle.innerHTML = '✨';
+        sparkle.style.position = 'absolute';
+        sparkle.style.left = Math.random() * window.innerWidth + 'px';
+        sparkle.style.top = Math.random() * window.innerHeight + 'px';
+        sparkle.style.fontSize = Math.random() * 20 + 10 + 'px';
+        sparkle.style.opacity = '0.7';
+        sparkle.style.pointerEvents = 'none';
+        sparkle.style.animation = 'sparkle 2s ease-out forwards';
+        
+        document.body.appendChild(sparkle);
+        
+        setTimeout(() => {
+            sparkle.remove();
+        }, 2000);
+    }
+    
+    // Add CSS for sparkle animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes sparkle {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1) rotate(180deg); opacity: 0.8; }
+            100% { transform: scale(0) rotate(360deg); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Create sparkles periodically
+    setInterval(createSparkle, 1000);
+  </script>
+
+</body>
+</html>
