@@ -69,7 +69,7 @@ body {
 
 /* Message Text */
 .salulation-message {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   text-align: left;
   color: #6a1b9a;
 }
@@ -77,7 +77,7 @@ body {
 .message {
   margin-top: 20px;
   margin-bottom: 30px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #6a1b9a;
 }
 
