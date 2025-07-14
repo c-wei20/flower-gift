@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,197 +10,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Crafty+Girls&family=Jua&family=Pacifico&display=swap" rel="stylesheet">
-  
+
   <!-- FlipDown CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.css">
-  
-  <style>
-    body {
-      margin: 0;
-      /* font-family: 'Segoe UI', sans-serif; */
-      font-family: 'Jua', sans-serif;
-      background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-      transition: background 1s ease;
-    }
 
-    .container {
-      text-align: center;
-      padding: 20px;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .curve-text {
-      font-size: 1.8rem;
-      /* font-family: cursive; */
-      /* font-weight: bold; */
-      color: #e91e63;
-      text-align: center;
-      line-height: 1.6;
-      text-shadow: 0px 2px 4px #ffd0eb;
-      /* transform: rotate(-5deg); slight curve illusion */
-    }
-
-    .line-big {
-      font-family: "Crafty Girls", cursive;
-      font-weight: bold;
-      font-size: 2.5rem;       /* Make this line bigger */
-      margin-bottom: 5px;
-    }
-
-    .line-small {
-      font-family: "Comic Relief", system-ui;
-      font-size: 1.5rem;     /* Smaller than the first line */
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    .present-view img {
-      width: 250px;
-      animation: pulse 2s infinite;
-    }
-
-    .flower-view img {
-      width: 250px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .message {
-      margin-top: 20px;
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-      color: #6a1b9a;
-    }
-
-    .countdown {
-      display: inline-block;
-      background: #ffe8f1;
-      color: #d81b60;
-      font-size: 1.2rem;
-      font-weight: bold;
-      padding: 12px 20px;
-      border-radius: 20px;
-      box-shadow: 0 3px 8px rgba(255, 105, 180, 0.2);
-      margin-top: 20px;
-      animation: popFade 1s ease-in-out;
-    }
-
-    .open-button {
-      margin-top: 20px;
-      padding: 12px 45px;
-      font-size: 1.2rem;
-      font-family: 'Jua', sans-serif;
-      background: #ff69b4;
-      color: white;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(255, 20, 147, 0.3);
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .open-button:hover {
-      background: #ff85c1;
-      transform: scale(1.1);
-      box-shadow: 0 6px 15px rgba(255, 20, 147, 0.4);
-    }
-
-    /* Music button circular style */
-    .music-button{
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      border: none;
-      background: #ffd374;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-    }
-
-    .music-button:hover {
-        transform: scale(1.1);
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.08); }
-      100% { transform: scale(1); }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes popFade {
-      0% { transform: scale(0.9); opacity: 0; }
-      50% { transform: scale(1.05); opacity: 0.8; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    /* Flipdown Custom Styling */
-    #flipdown {
-      margin: 0;
-      margin-left: 0;
-      transform: scale(0.6);
-    }
-    .flipdown .rotor-group-heading {
-      font-family: 'Jua', sans-serif;
-      font-size: 1.3rem;
-    }
-
-    .flipdown-wrapper {
-      text-align: center;
-      margin-top: 20px;
-
-      background: #ffffff;              /* light pink or any color you like */
-      padding: 5px 5px;               /* space around the FlipDown */
-      border-radius: 25px;              /* this gives you the rounded corners */
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* optional shadow for depth */
-    }
-
-    .flip-label {
-      font-family: 'Jua', sans-serif; /* or any fancy font you’re using */
-      font-size: 1rem;
-      color: #d81b60;
-      margin: 2px 0;
-    }
-
-    .flip-label.above {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    .flip-label.below {
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
-
-    iframe {
-      position: absolute;
-      top: -1000px; /* Hide from view */
-    }
-  </style>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <!-- Initial present view -->
     <div class="present-view" id="presentView">
-      <div class="curve-text">
+      <div class="present-text">
         <span class="line-big">Dear Agnes</span><br/>
         <span class="line-small">There Is A Gift For You…</span>
       </div>
@@ -210,121 +32,36 @@
 
     <!-- Hidden flower and message view -->
     <div class="flower-view hidden" id="flowerView">
-      <img src="flower.gif" alt="Flower Bouquet"/>
-      <div class="message">
-        Just a little bloom of luck for your finals!<br/>
-        Wishing you all the clarity, calm, <br/>
-        and confidence in your finals!<br/>
-        You've got this — I believe in you. 💖
-      </div>
-      <!-- <div class="countdown" id="countdown"></div> -->
+      <img src="Flower.png" alt="Flower Bouquet"/>
+        <div class="salulation-message">
+          Dear Agnes:<br/>
+        </div>
+        <div class="message">
+          Just a little bloom of luck for<br/>
+          your finals!<br/>
+          Wishing you all the clarity, calm, <br/>
+          and confidence in your finals!<br/>
+          You've got this — I believe in you. <br/>💖💪<br/>
+          <br/>
+          Don't Stress, Rest Well,<br/>
+          Be CALM, Be CONFIDENCE.<br/><br/>
+        </div>
       <div id="flipdown-wrapper" class="flipdown-wrapper">
-        <div class="flip-label above">Countdown</div>
-
+        <div class="flip-label above">COUNTDOWN</div>
         <div id="flipdown" class="flipdown"></div>
-
-        <div class="flip-label below">To your Battle Day 1</div>
+        <div class="flip-label below">To Your Battle Day 1</div>
       </div>
     </div>
   </div>
 
   <!-- Local Music with Mute Toggle -->
   <audio id="bgMusic" src="Colorful-Flowers.mp3" autoplay loop></audio>
-
   <button class="music-button" id="muteBtn" onclick="toggleMute()">
-    🔇
+    <img id="muteIcon" src="Mute.png" alt="Mute" />
   </button>
 
   <!-- FlipDown JS -->
   <script src="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.js"></script>
-
-  <script>
-    function revealGift() {
-      document.getElementById('presentView').classList.add('hidden');
-      document.getElementById('flowerView').classList.remove('hidden');
-      document.body.style.background = '#fffafc';
-    }
-
-    // Countdown
-    // const examDate = new Date("2025-07-15T09:00:00"); // CHANGE THIS
-    // const countdownEl = document.getElementById('countdown');
-
-    // function updateCountdown() {
-    //   const now = new Date();
-    //   const diff = examDate - now;
-
-    //   if (diff <= 0) {
-    //     countdownEl.textContent = "It's exam time! You’ve got this!";
-    //     return;
-    //   }
-
-    //   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    //   const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    //   const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    //   const seconds = Math.floor((diff / 1000) % 60);
-
-    //   countdownEl.textContent = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s to your big day!`;
-    // }
-
-    // setInterval(updateCountdown, 1000);
-
-    const examDate = Math.floor(new Date("2025-07-17T10:00:00").getTime() / 1000);
-
-    // Initialize FlipDown
-    new FlipDown(examDate, {
-      theme: "dark"  // "dark" also available
-    })
-    .start()
-    .ifEnded(() => {
-      document.getElementById('flipdown').innerHTML = "<h2>It's exam time! 💪📚</h2>";
-    });
-
-    const bgMusic = document.getElementById("bgMusic");
-    const muteBtn = document.getElementById("muteBtn");
-
-    function toggleMute() {
-      bgMusic.muted = !bgMusic.muted;
-      muteBtn.innerHTML = bgMusic.muted ? '🔇' : '🔊';
-    }
-
-    window.addEventListener('load', () => {
-      bgMusic.muted = true;
-      muteBtn.innerHTML = '🔇';
-    });
-
-    // Add some sparkle effect
-    function createSparkle() {
-        const sparkle = document.createElement('div');
-        sparkle.innerHTML = '✨';
-        sparkle.style.position = 'absolute';
-        sparkle.style.left = Math.random() * window.innerWidth + 'px';
-        sparkle.style.top = Math.random() * window.innerHeight + 'px';
-        sparkle.style.fontSize = Math.random() * 20 + 10 + 'px';
-        sparkle.style.opacity = '0.7';
-        sparkle.style.pointerEvents = 'none';
-        sparkle.style.animation = 'sparkle 2s ease-out forwards';
-        
-        document.body.appendChild(sparkle);
-        
-        setTimeout(() => {
-            sparkle.remove();
-        }, 2000);
-    }
-    
-    // Add CSS for sparkle animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes sparkle {
-            0% { transform: scale(0) rotate(0deg); opacity: 1; }
-            50% { transform: scale(1) rotate(180deg); opacity: 0.8; }
-            100% { transform: scale(0) rotate(360deg); opacity: 0; }
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Create sparkles periodically
-    setInterval(createSparkle, 1000);
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
