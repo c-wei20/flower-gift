@@ -63,8 +63,8 @@
 
     .open-button {
       margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1rem;
+      padding: 12px 45px;
+      font-size: 1.2rem;
       font-family: cursive;
       background: #ff69b4;
       color: white;
@@ -77,21 +77,12 @@
 
     .open-button:hover {
       background: #ff85c1;
-      transform: translateY(-2px);
+      transform: scale(1.1);
       box-shadow: 0 6px 15px rgba(255, 20, 147, 0.4);
     }
 
     /* Music button circular style */
     .music-button{
-      /* background: #fff27f;
-      color: #222;
-      border: none;
-      padding: 10px 14px;
-      border-radius: 50%;
-      font-size: 20px;
-      /* font-weight: bold;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-      cursor: pointer; */
       position: absolute;
       top: 20px;
       right: 20px;
@@ -157,7 +148,7 @@
   </div>
 
   <!-- Local Music with Mute Toggle -->
-  <audio id="bgMusic" src="Colorful-Flowers.mp3" loop autoplay></audio>
+  <audio id="bgMusic" src="Colorful-Flowers.mp3" autoplay loop></audio>
 
   <button class="music-button" id="muteBtn" onclick="toggleMute()">
     🔇
