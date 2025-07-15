@@ -31,6 +31,15 @@ body {
   display: none;
 }
 
+.fade-seq {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.popfade {
+  animation: popFade 0.8s ease forwards;
+}
+
 /* Greeting Text */
 .present-text {
   font-size: 1.8rem;
@@ -40,24 +49,38 @@ body {
   text-shadow: 0px 2px 4px #ffd0eb;
 }
 
+.float {
+  animation: float 0.6s ease forwards;
+}
+
 .line-big {
   font-family: "Crafty Girls", cursive;
   font-weight: bold;
   font-size: 2.5rem;
+  display: inline-block;
   margin-bottom: 5px;
+}
+
+.line-big-char {
+  display: inline-block;
+  opacity: 1;
 }
 
 .line-small {
   font-family: "Comic Relief", system-ui;
   font-size: 1.5rem;
   margin-bottom: 20px;
-  display: block;
+  display: inline-block;
+}
+
+.line-small-char {
+  display: inline-block;
+  opacity: 1;
 }
 
 /* Images */
 .present-view img {
   width: 250px;
-  animation: pulse 2s infinite;
 }
 
 .flower-view img {
@@ -68,7 +91,8 @@ body {
 }
 
 /* Message Text */
-.salulation-message {
+.salulation-text {
+  /* margin-top: -10px; */
   font-size: 1.2rem;
   text-align: left;
   color: #6a1b9a;
@@ -184,6 +208,7 @@ body {
   align-items: center;
   flex-direction: column; /* keep label above and below */
   margin-top: 20px;
+  margin-bottom: 20px;
   background: #ffffff;
   padding: 5px;
   border-radius: 25px;
@@ -204,7 +229,7 @@ body {
 }
 
 .flip-label.below {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
   font-weight: bold;
 }
