@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>To Someone Special 💝</title>
+  <title>To Someone Special 🎁</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Crafty+Girls&family=Jua&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Crafty+Girls&family=Jua&display=swap" rel="stylesheet">
 
   <!-- FlipDown CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.css">
@@ -22,23 +22,23 @@
     <!-- Initial present view -->
     <div class="present-view" id="presentView">
       <div class="present-text">
-        <span class="line-big">Dear Agnes</span><br/>
-        <span class="line-small">There Is A Gift For You…</span>
+        <span id="lineBig" class="line-big fade-seq">Dear Agnes</span><br/>
+        <span id="lineSmall" class="line-small fade-seq">There Is A Gift For You…</span>
       </div>
-      <img src="giftbox1.gif" alt="Gift Present" class="present-img"/>
+      <img id="giftBox" src="Resource/giftbox1.gif" alt="Gift Present" class="present-img fade-seq"/>
       <br/>
-      <button class="open-button" onclick="revealGift()">Click Me!</button>
+      <button id="clickButton" class="open-button fade-seq" onclick="revealGift()">Click Me!</button>
     </div>
 
     <!-- Hidden flower and message view -->
     <div class="flower-view hidden" id="flowerView">
-      <img src="Flower.png" alt="Flower Bouquet"/>
-        <div class="salulation-message">
+      <img id="flowerImage" class="fade-seq" src="Resource/Flower.png" alt="Flower Bouquet"/>
+        <div id="salutation" class="salulation-text fade-seq">
           Dear Agnes:<br/>
         </div>
-        <div class="message">
-          Just a little bloom of luck for<br/>
-          your finals!<br/>
+        <div id="messageText" class="message fade-seq">
+          Just a little bloom of luck <br/>
+          for your finals!<br/>
           Wishing you all the clarity, calm, <br/>
           and confidence in your finals!<br/>
           You've got this — I believe in you. <br/>💖💪<br/>
@@ -46,10 +46,10 @@
           Don't Stress, Rest Well,<br/>
           Be CALM, Be CONFIDENCE.<br/>
         </div>
-      <div id="flipdown-wrapper" class="flipdown-wrapper">
-        <div class="flip-label above">COUNTDOWN</div>
+      <div id="flipdown-wrapper" class="flipdown-wrapper fade-seq">
+        <div id="flipdown-label-above" class="flip-label above">COUNTDOWN</div>
         <div id="flipdown" class="flipdown"></div>
-        <div class="flip-label below">To Your Battle Day 1</div>
+        <div id="flipdown-label-bottom" class="flip-label below">To Your Battle Day 1</div>
       </div>
     </div>
   </div>
@@ -57,7 +57,7 @@
   <!-- Local Music with Mute Toggle -->
   <audio id="bgMusic" src="Colorful-Flowers.mp3" autoplay loop></audio>
   <button class="music-button" id="muteBtn" onclick="toggleMute()">
-    <img id="muteIcon" src="Mute.png" alt="Mute" />
+    <img id="muteIcon" src="Resource/Mute.png" alt="Mute" />
   </button>
 
   <!-- FlipDown JS -->
